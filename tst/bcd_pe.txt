@@ -1,0 +1,5 @@
+CAAA 1_1.fq 1_2.fq
+CACA 2_1.fq 2_2.fq
+CACC 3_1.fq 3_2.fq
+CACG 4_1.fq 4_2.fq
+CACT 5_1.fq 5_2.fq
