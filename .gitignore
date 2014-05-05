@@ -1,0 +1,6 @@
+*.o
+*.swp
+sabre
+perf.data*
+**/tags
+tags
