@@ -21,6 +21,9 @@ demulti_single.o: $(SDIR)/demulti_single.c $(SDIR)/sabre.h $(SDIR)/kseq.h
 demulti_paired.o: $(SDIR)/demulti_paired.c $(SDIR)/sabre.h $(SDIR)/kseq.h
 	$(CC) $(CFLAGS) $(OPT) -c $(SDIR)/$*.c
 
+demulti_comb.o: $(SDIR)/demulti_comb.c $(SDIR)/sabre.h $(SDIR)/kseq.h
+	$(CC) $(CFLAGS) $(OPT) -c $(SDIR)/$*.c
+
 sabre.o: $(SDIR)/sabre.c $(SDIR)/sabre.h
 	$(CC) $(CFLAGS) $(OPT) -c $(SDIR)/$*.c
 
@@ -33,7 +36,7 @@ distclean: clean
 dist:
 	tar -zcf $(ARCHIVE).tar.gz src Makefile
 
-build: barcode.o demulti_single.o demulti_paired.o sabre.o
+build: barcode.o demulti_single.o demulti_paired.o demulti_comb.o sabre.o
 	$(CC) $(CFLAGS) $(OPT) $? -o $(PROGRAM_NAME) $(LDFLAGS)
 
 debug:

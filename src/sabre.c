@@ -14,6 +14,7 @@ void main_usage (int status) {
 \n\
 Command:\n\
 pe\tpaired-end barcode de-multiplexing\n\
+comb\tCombinatorially barcoded paired-end de-multiplexing\n\
 se\tsingle-end barcode de-multiplexing\n\
 \n\
 --help, display this help and exit\n\
@@ -25,7 +26,7 @@ se\tsingle-end barcode de-multiplexing\n\
 int main (int argc, char *argv[]) {
 	int retval=0;
 
-	if (argc < 2 || (strcmp (argv[1],"pe") != 0 && strcmp (argv[1],"se") != 0 && strcmp (argv[1],"--version") != 0 && strcmp (argv[1],"--help") != 0)) {
+	if (argc < 2 || (strcmp (argv[1],"comb") != 0 && strcmp (argv[1],"pe") != 0 && strcmp (argv[1],"se") != 0 && strcmp (argv[1],"--version") != 0 && strcmp (argv[1],"--help") != 0)) {
 		main_usage (EXIT_FAILURE);
 	}
 
@@ -38,6 +39,11 @@ int main (int argc, char *argv[]) {
 
 	else if (strcmp (argv[1],"--help") == 0) {
 		main_usage (EXIT_SUCCESS);
+	}
+
+	else if (strcmp (argv[1],"comb") == 0) {
+		retval = comb_main (argc - 1, argv + 1);
+		return (retval);
 	}
 
 	else if (strcmp (argv[1],"pe") == 0) {

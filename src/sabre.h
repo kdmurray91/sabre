@@ -58,10 +58,22 @@ typedef struct listel_p {
 	struct listel_p *next;
 } barcode_data_paired;
 
+typedef struct listel_c {
+	char* bc1;
+	char* bc2;
+	size_t bc1_len;
+	size_t bc2_len;
+	int num_records;
+	FILE* bcfile1;
+	FILE* bcfile2;
+	struct listel_c *next;
+} barcode_data_comb;
+
 
 /* Function Prototypes */
 int single_main (int argc, char *argv[]);
 int paired_main (int argc, char *argv[]);
+int comb_main (int argc, char *argv[]);
 int strncmp_with_mismatch (const char *s1, const char *s2, register size_t n, register size_t mismatch);
 
 #endif /*SABRE_H*/
