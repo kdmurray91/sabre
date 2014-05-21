@@ -1,5 +1,5 @@
-CAAA 1_1.fq
-CACA 2_1.fq
-CACC 3_1.fq
-CACG 4_1.fq
-CACT 5_1.fq
+CAAA tmp/1_1.fq
+CACA tmp/2_1.fq
+CACC tmp/3_1.fq
+CACG tmp/4_1.fq
+CACT tmp/5_1.fq
