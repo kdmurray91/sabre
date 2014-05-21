@@ -8,7 +8,7 @@ ARCHIVE = $(PROGRAM_NAME)_$(VERSION)
 LDFLAGS = -lz
 SDIR = src
 
-.PHONY: clean default build distclean dist debug
+.PHONY: clean default build distclean dist debug check
 
 default: build
 
@@ -28,7 +28,7 @@ sabre.o: $(SDIR)/sabre.c $(SDIR)/sabre.h
 	$(CC) $(CFLAGS) $(OPT) -c $(SDIR)/$*.c
 
 clean:
-	rm -rf *.o $(SDIR)/*.gch ./sabre
+	rm -rf *.o $(SDIR)/*.gch ./sabre ./tmp
 
 distclean: clean
 	rm -rf *.tar.gz
@@ -42,3 +42,5 @@ build: barcode.o demulti_single.o demulti_paired.o demulti_comb.o sabre.o
 debug:
 	$(MAKE) build "CFLAGS=-Wall -pedantic -g -DDEBUG"
 
+check: build
+	bash test/test.sh
